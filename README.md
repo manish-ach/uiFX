@@ -1,5 +1,5 @@
 # uiFX
-a simple login app connected to database, using Javafx and css
+a simple login app connected to SQL database, styled using Javafx and css.
 
 ![Screenshot 2025-05-16 at 22 08 54](https://github.com/user-attachments/assets/b620d894-49a1-4306-9142-dd1d32376cc1)
 
