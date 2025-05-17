@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.eternal.uifx.HelloController"
+            styleClass="root, dashboard">
+
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="10">
+            <Label text="Eternal Dashboard" styleClass="dashboard-title"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="logoutButton" onAction="#handleLogout" text="Logout" styleClass="logout-button" />
+        </HBox>
+    </top>
+
+    <!-- Left Side Navigation -->
+    <left>
+        <VBox styleClass="sidebar">
+            <Button text="Dashboard" styleClass="nav-button, nav-button-active"/>
+            <Button text="Reports" styleClass="nav-button"/>
+            <Button text="Settings" styleClass="nav-button"/>
+            <Button text="Help" styleClass="nav-button"/>
+        </VBox>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-area">
+            <VBox spacing="20">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20" />
+                </padding>
+
+                <!-- Welcome Section -->
+                <HBox styleClass="welcome-section">
+                    <VBox>
+                        <Label fx:id="welcomeLabel" text="Welcome back!" styleClass="welcome-text"/>
+                        <Text text="Here's an overview of your activity" styleClass="subtitle-text"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Stats Cards -->
+                <HBox spacing="15" styleClass="stats-container">
+                    <VBox styleClass="stat-card">
+                        <Label text="Total Users" styleClass="stat-title"/>
+                        <Label text="1,254" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card">
+                        <Label text="Active Sessions" styleClass="stat-title"/>
+                        <Label text="37" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card">
+                        <Label text="New Registrations" styleClass="stat-title"/>
+                        <Label text="12" styleClass="stat-value"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Charts Section -->
+                <HBox spacing="15" styleClass="charts-container">
+                    <VBox styleClass="chart-card" HBox.hgrow="ALWAYS">
+                        <Label text="User Activity" styleClass="chart-title"/>
+                        <BarChart fx:id="activityChart" legendVisible="false">
+                            <xAxis>
+                                <CategoryAxis label="Day"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="Count"/>
+                            </yAxis>
+                        </BarChart>
+                    </VBox>
+                    <VBox styleClass="chart-card" HBox.hgrow="ALWAYS">
+                        <Label text="User Distribution" styleClass="chart-title"/>
+                        <PieChart fx:id="distributionChart" labelsVisible="false"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Recent Activity Table -->
+                <VBox styleClass="table-card">
+                    <Label text="Recent Activity" styleClass="section-title"/>
+                    <TableView fx:id="activityTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn text="User" prefWidth="150"/>
+                            <TableColumn text="Action" prefWidth="200"/>
+                            <TableColumn text="Date" prefWidth="150"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

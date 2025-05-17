@@ -6,12 +6,12 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.eternal.uifx.HelloController"
-            stylesheets="@login-styles.css">
+            styleClass="root">
 
   <center>
     <VBox alignment="CENTER" spacing="20.0">
@@ -20,15 +20,19 @@
 
         <VBox styleClass="field-container">
           <Label text="Username" styleClass="field-label" />
-          <TextField fx:id="usernameField" promptText="Enter username" />
+          <TextField fx:id="usernameField" promptText="Enter username" styleClass="text-field" />
         </VBox>
 
         <VBox styleClass="field-container">
           <Label text="Password" styleClass="field-label" />
-          <PasswordField fx:id="passwordField" promptText="Enter password" />
+          <PasswordField fx:id="passwordField" promptText="Enter password" styleClass="text-field" />
         </VBox>
 
-        <Button text="Login" onAction="#handleLogin" styleClass="login-button" />
+        <HBox spacing="10" alignment="CENTER">
+          <Button text="Login" onAction="#handleLogin" styleClass="primary-button" />
+          <Button text="Sign Up" onAction="#handleSignUp" styleClass="secondary-button" />
+        </HBox>
+
         <Label fx:id="statusLabel" styleClass="status-label" />
       </VBox>
     </VBox>
